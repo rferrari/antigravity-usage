@@ -65,6 +65,12 @@ async function fetchQuotaGoogle(): Promise<QuotaSnapshot> {
   const codeAssistResponse = await client.loadCodeAssist()
   debug('service', 'Code assist response received', JSON.stringify(codeAssistResponse))
   
+  // Save project ID to token storage for future use (for triggers, etc.)
+  if (codeAssistResponse?.cloudaicompanionProject) {
+    tokenManager.setProjectId(codeAssistResponse.cloudaicompanionProject)
+    debug('service', `Project ID saved: ${codeAssistResponse.cloudaicompanionProject}`)
+  }
+  
   // Try to fetch models, but it might fail with 403
   let modelsResponse: FetchAvailableModelsResponse = {}
   try {

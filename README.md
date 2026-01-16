@@ -129,6 +129,24 @@ Troubleshoot issues with your setup. Checks env vars, auth status, and local ser
 ### `antigravity-usage status`
 Quickly check if your auth tokens are valid or expired.
 
+### `antigravity-usage wakeup`
+Auto wake-up and warm up AI models to optimize quota usage.
+
+```bash
+antigravity-usage wakeup config     # Configure schedule interactively
+antigravity-usage wakeup install    # Install to system cron
+antigravity-usage wakeup uninstall  # Remove from cron
+antigravity-usage wakeup test       # Manual test trigger
+antigravity-usage wakeup history    # View trigger history
+antigravity-usage wakeup status     # Show current status
+```
+
+**Features:**
+- 🕐 **Schedule-based**: Run at specific times (interval, daily, or cron)
+- 🔄 **Quota-reset-based**: Auto-trigger when quota resets
+- 👥 **Multi-account**: Trigger for multiple accounts
+- 🛡️ **Deduplication**: Cooldown prevents duplicate triggers
+
 ## Configuration
 Data is stored in your system's standard config location:
 - **macOS**: `~/Library/Application Support/antigravity-usage/`

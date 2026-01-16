@@ -31,12 +31,20 @@ export class TokenManager {
   
   constructor(email?: string) {
     if (email) {
+      // Specific account requested
       this.accountEmail = email
       this.tokens = loadAccountTokens(email)
     } else {
       // Use active account
       this.accountEmail = getActiveAccountEmail()
-      this.tokens = loadTokens()
+      
+      // If we have an active account email, use account-specific storage
+      // Otherwise fall back to legacy default storage
+      if (this.accountEmail) {
+        this.tokens = loadAccountTokens(this.accountEmail)
+      } else {
+        this.tokens = loadTokens()
+      }
     }
   }
   
@@ -77,6 +85,24 @@ export class TokenManager {
    */
   getProjectId(): string | undefined {
     return this.tokens?.projectId
+  }
+  
+  /**
+   * Set and persist project ID
+   */
+  setProjectId(projectId: string): void {
+    if (!this.tokens) return
+    
+    this.tokens.projectId = projectId
+    
+    // Save to disk
+    if (this.accountEmail) {
+      saveAccountTokens(this.accountEmail, this.tokens)
+    } else {
+      saveTokens(this.tokens)
+    }
+    
+    debug('token-manager', `Project ID saved: ${projectId}`)
   }
   
   /**

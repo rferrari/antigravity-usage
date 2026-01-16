@@ -131,13 +131,26 @@ async function fetchProjectId(accessToken: string): Promise<string | undefined> 
         'Content-Type': 'application/json',
         'User-Agent': 'antigravity/1.11.3 Darwin/arm64'
       },
-      body: JSON.stringify({ metadata: { ideType: 'ANTIGRAVITY' } })
+      body: JSON.stringify({ 
+        metadata: { 
+          ideType: 'ANTIGRAVITY',
+          platform: 'PLATFORM_UNSPECIFIED',
+          pluginType: 'GEMINI'
+        } 
+      })
     })
     
     if (response.ok) {
-      const data = await response.json() as { cloudaicompanionProject?: string }
-      debug('oauth', `Got project ID: ${data.cloudaicompanionProject}`)
-      return data.cloudaicompanionProject
+      const data = await response.json() as Record<string, unknown>
+      
+      // Debug: print full response
+      debug('oauth', `loadCodeAssist FULL response: ${JSON.stringify(data, null, 2)}`)
+      
+      // Try to extract cloudaicompanionProject
+      const projectId = (data as any).cloudaicompanionProject
+      debug('oauth', `Extracted cloudaicompanionProject: ${projectId}`)
+      
+      return typeof projectId === 'string' ? projectId : undefined
     }
     
     debug('oauth', `Failed to get project ID: ${response.status}`)
