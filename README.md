@@ -80,6 +80,7 @@ By default, `antigravity-usage` runs in **Auto Mode**, seamlessly switching betw
 
 ### 🤖 Auto Wakeup (macOS & Linux)
 Never waste quota again. Automatically wake up your AI models to maximize your daily limits.
+- **Fully Automatic**: Runs in the background via native system scheduler - no need to keep terminal or Antigravity open
 - **Native Cron Integration**: Schedule-based triggers (every N hours, daily, or custom cron)
 - **Smart Quota-Reset Detection**: Zero-waste mode that detects when quota resets
 - **Multi-Account Support**: Trigger all your accounts simultaneously
@@ -89,9 +90,11 @@ Never waste quota again. Automatically wake up your AI models to maximize your d
 See the [Wakeup Command](#antigravity-usage-wakeup-) section for full details.
 
 ### 🔐 Multi-Account Management
-Seamlessly juggle multiple Google accounts (e.g., Personal vs Work).
-- **Parallel Fetching**: optional `--all` flag fetches data for all accounts simultaneously.
-- **Privacy Focused**: Tokens are stored locally on your machine, never sent to third-party servers.
+Manage multiple Google accounts and compare quota across Personal, Work, and other accounts.
+- **Check All Accounts**: Use `--all` flag to fetch and compare quota across all logged-in accounts simultaneously
+- **Side-by-Side Comparison**: View quota usage and reset times for all accounts in a single table
+- **Easy Switching**: Switch between accounts to use different credentials for API calls
+- **Privacy Focused**: All tokens stored locally on your machine, never sent to third-party servers
 
 ### 🔌 Offline Capabilities
 Designed for plane rides and spotty wifi.
