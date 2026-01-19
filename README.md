@@ -8,7 +8,7 @@
     <a href="https://packagephobia.com/result?p=antigravity-usage"><img src="https://packagephobia.com/badge?p=antigravity-usage" alt="install size" /></a>
     <a href="https://www.npmjs.com/package/antigravity-usage"><img src="https://img.shields.io/npm/dt/antigravity-usage" alt="NPM Downloads" /></a>
     <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT" /></a>
-    <a href="https://nodejs.org"><img src="https://img.shields.io/badge/node-%3E%3D20-brightgreen.svg" alt="Node.js Version" /></a>
+    <a href="https://nodejs.org"><img src="https://img.shields.io/badge/node-%3E%3D18-brightgreen.svg" alt="Node.js Version" /></a>
 </p>
 
 <p align="center">
