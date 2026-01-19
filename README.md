@@ -78,6 +78,16 @@ By default, `antigravity-usage` runs in **Auto Mode**, seamlessly switching betw
 
 ## Features
 
+### 🤖 Auto Wakeup (macOS & Linux)
+Never waste quota again. Automatically wake up your AI models to maximize your daily limits.
+- **Native Cron Integration**: Schedule-based triggers (every N hours, daily, or custom cron)
+- **Smart Quota-Reset Detection**: Zero-waste mode that detects when quota resets
+- **Multi-Account Support**: Trigger all your accounts simultaneously
+- **Built-in Safety**: Cooldown protection, retry logic, detailed history tracking
+- **Platform Support**: Currently available on **macOS and Linux** (Windows support coming soon)
+
+See the [Wakeup Command](#antigravity-usage-wakeup-) section for full details.
+
 ### 🔐 Multi-Account Management
 Seamlessly juggle multiple Google accounts (e.g., Personal vs Work).
 - **Parallel Fetching**: optional `--all` flag fetches data for all accounts simultaneously.
@@ -95,16 +105,6 @@ To keep the CLI snappy and avoid hitting API rate limits:
     ```bash
     antigravity-usage quota --refresh
     ```
-
-### 🤖 Auto Wakeup (macOS & Linux)
-Never waste quota again. Automatically wake up your AI models to maximize your daily limits.
-- **Native Cron Integration**: Schedule-based triggers (every N hours, daily, or custom cron)
-- **Smart Quota-Reset Detection**: Zero-waste mode that detects when quota resets
-- **Multi-Account Support**: Trigger all your accounts simultaneously
-- **Built-in Safety**: Cooldown protection, retry logic, detailed history tracking
-- **Platform Support**: Currently available on **macOS and Linux** (Windows support coming soon)
-
-See the [Wakeup Command](#antigravity-usage-wakeup-) section for full details.
 
 ### 📱 Responsive UI
 Tables automatically adapt to your terminal size, switching between "Compact" and "Spacious" views to show you the most relevant data without wrapping.
