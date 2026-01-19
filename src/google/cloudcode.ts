@@ -2,6 +2,7 @@
  * Google Cloud Code API client
  */
 
+import { randomUUID } from 'crypto'
 import { debug } from '../core/logger.js'
 import { APIError, AuthenticationError, NetworkError, RateLimitError } from '../core/errors.js'
 import type { TokenManager } from './token-manager.js'
@@ -315,8 +316,8 @@ export class CloudCodeClient {
     }
     
     // Generate unique IDs
-    const requestId = crypto.randomUUID()
-    const sessionId = crypto.randomUUID()
+    const requestId = randomUUID()
+    const sessionId = randomUUID()
     
     // System instruction - MUST match exact Cockpit extension format
     const systemInstruction = {
