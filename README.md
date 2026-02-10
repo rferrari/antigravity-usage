@@ -49,6 +49,13 @@ Want to check quota for **multiple accounts** or when your IDE is closed?
 antigravity-usage login
 ```
 
+### 1a. Manual Login (Headless/SSH)
+If you are on a headless server or cannot open a browser locally:
+```bash
+antigravity-usage login --manual
+```
+Follow the on-screen instructions to paste the authentication URL into your local browser and copy the result back.
+
 ### 2. Add more accounts
 ```bash
 antigravity-usage accounts add
@@ -109,8 +116,14 @@ To keep the CLI snappy and avoid hitting API rate limits:
     antigravity-usage quota --refresh
     ```
 
-### 📱 Responsive UI
-Tables automatically adapt to your terminal size, switching between "Compact" and "Spacious" views to show you the most relevant data without wrapping.
+
+### 🎯 Focused Model View
+By default, `antigravity-usage` hides "autocomplete" models (like `gemini-2.5-flash-002`) to reduce clutter, as these typically share quota with their main counterparts or are less relevant for tracking.
+
+To see **ALL** available models, including autocomplete ones:
+```bash
+antigravity-usage quota --all-models
+```
 
 ---
 
@@ -124,6 +137,7 @@ antigravity-usage                   # Auto-detect (Local -> Cloud)
 antigravity-usage --all             # Fetch ALL accounts
 antigravity-usage --method local    # Force local IDE connection
 antigravity-usage --method google   # Force google IDE connection
+antigravity-usage --all-models      # Show ALL models (including autocomplete)
 antigravity-usage --json            # Output JSON for scripts
 antigravity-usage --version         # Show version number
 ```
